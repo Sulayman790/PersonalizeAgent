@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+/* Réinitialisation ou styles globaux optionnels */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Arial, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Conteneur principal */
+.app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ------------------ HEADER ------------------ */
+.header {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo img {
+  height: 30px;
+  margin-right: 8px;
+}
+
+.nav-links a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Boutons */
+.btn-primary,
+.btn-outline {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #2db84c;
+  color: #fff;
+  border: 1px solid #2db84c;
+}
+
+.btn-primary:hover {
+  background-color: #28a745;
+}
+
+.btn-outline {
+  background-color: #fff;
+  color: #2db84c;
+  border: 1px solid #2db84c;
+}
+
+.btn-outline:hover {
+  background-color: #f9f9f9;
+}
+
+/* ------------------ HERO SECTION ------------------ */
+.hero {
+  flex: 1;
+  background-color: #00a82d; /* Vert Evernote approximatif */
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBmaWxsPSIjMGQwZTBmIiBjeD0iNTAwIiBjeT0iMCIgcj0iNTAwIi8+PC9zdmc+');
+  background-size: contain;
+  background-repeat: repeat;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+  padding: 4rem 2rem;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Image hero */
+.hero-image {
+  position: relative;
+  max-width: 400px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Icône étoile */
+.star-icon {
+  position: absolute;
+  top: 10%;
+  right: -20px;
+  font-size: 2rem;
+  color: #ffd700;
+}
+
+/* ------------------ FOOTER ------------------ */
+.footer {
+  background-color: #fff;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+}
+
+.footer p {
+  color: #555;
+  font-size: 0.9rem;
 }
