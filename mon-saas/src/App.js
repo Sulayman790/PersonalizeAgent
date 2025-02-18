@@ -1,16 +1,26 @@
+// src/App.js
 import React from "react";
-import "./App.css"; // Import du fichier CSS
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
+import Login from "./Login";
+import SignUp from "./SignUp";
+import "./App.css"; 
 
-function App() {
+// -- Composant "Home" : votre page actuelle --
+function Home() {
+  // Hook pour naviguer vers d’autres routes
+  const navigate = useNavigate();
+
   return (
     <div className="app">
       {/* En-tête / Navigation */}
       <header className="header">
         <div className="logo">
-          <img
-            src="logo.png"
-            alt="Evernote Logo"
-          />
+          <img src="logo.png" alt="Evernote Logo" />
           <span>Perzonalize-Crypto-Agent</span>
         </div>
         <nav className="nav-links">
@@ -20,8 +30,13 @@ function App() {
           <a href="#about">Avancement</a>
         </nav>
         <div className="auth-buttons">
-          <button className="btn-outline">Log In</button>
-          <button className="btn-primary">Sign Up</button>
+          {/* On remplace l'ancienne balise button par un onClick qui redirige */}
+          <button className="btn-outline" onClick={() => navigate("/login")}>
+            Log In
+          </button>
+          <button className="btn-primary" onClick={() => navigate("/signup")}>
+            Sign Up
+          </button>
         </div>
       </header>
 
@@ -30,7 +45,8 @@ function App() {
         <div className="hero-text">
           <h1>Un agent pour une meilleure productivité</h1>
           <p>
-          PerzonalizeCryptoAgent vous mets à disposition un agent qui vous permet d'automatiser vos tâches et de gagner du temps.
+            PerzonalizeCryptoAgent vous mets à disposition un agent qui vous
+            permet d'automatiser vos tâches et de gagner du temps.
           </p>
           <button className="btn-primary">Sign Up For Free</button>
         </div>
@@ -40,16 +56,32 @@ function App() {
             src="https://cdn.evernote.com/marketing/www/assets/homepage-repackaging/hero_device_evernote.png"
             alt="Evernote App on devices"
           />
-          {/* Petite icône étoile, si vous voulez la reproduire */}
+          {/* Petite icône étoile */}
           <div className="star-icon">⭐</div>
         </div>
       </main>
 
-      {/* Pied de page (facultatif) */}
+      {/* Pied de page */}
       <footer className="footer">
         <p>© 2025 CryptoAgent Corporation. All rights reserved.</p>
       </footer>
     </div>
+  );
+}
+
+// -- Composant principal App : gère les routes --
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Page d’accueil */}
+        <Route path="/" element={<Home />} />
+        {/* Page de connexion */}
+        <Route path="/login" element={<Login />} />
+        {/* Page d’inscription */}
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+    </Router>
   );
 }
 
